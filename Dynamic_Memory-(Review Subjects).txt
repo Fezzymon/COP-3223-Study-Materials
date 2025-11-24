@@ -1,0 +1,24 @@
+- The "sizeof" operator (sizeof)
+	- Determines how many bytes need to be allocated for that Variable or Data-Type
+	- Syntax:  sizeof(type) OR sizeof(variable)
+	- Ex. sizeof(int) equals(=) 4
+- The malloc function (malloc)
+	- Located in <stdlib.h>'s Libary
+	- Requests a block of memory from the "heap" section
+		- Syntax: pointer_variable = malloc(size_in_bytes);
+		- Returns a pointer to the start of the memory on Success
+			- Returns 'Null' on Failure
+- The "free" function (free)
+	- YOU MUST USE THIS FUNCTION!!!
+	- Frees memory after allocating with malloc, preventing memory leaks
+		- Syntax: free(pointer_variable_of_memory);
+		- Ex. free(ptr);
+- Using 'NULL'
+	- After freeing memory, set the ptr to NULL
+		- Helps compilier from fucking up and reusing the memory you just freed
+	- Syntax: ptr = NULL;
+- Doing Dynamical Array Allocation
+	- The standard way to allocate enough memory via malloc to hold "N" elements
+		- Syntax: type *arr = malloc(sizeof(type) * N);
+		- Ex. int N = 5; int *arr = malloc(sizeof(int) * N);
+			- Allocates 20 bytes [int(4) * N(5)], to the address of the array(arr)
