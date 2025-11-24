@@ -1,0 +1,13 @@
+- The "Dot" operator (.)
+		- Used to access a structure variable
+		- Syntax: (struct's_variable_name).(member's_name)
+		- Ex. p.year = 2000; strcpy(p.name, "John Doe");
+- The "Arrow" operator (->)
+	- Used when using a pointer-TO-the structure and accessing its member 
+	- Equivalent to: (*p).member
+		- Use as: p->member
+- Arrays-of-Structures
+	- Used as databases of multiple structures, Ex. students and their invisual databases
+	- Syntax: parent_struct_name child_struct_name[5];
+		- child_struct_name[0].member;
+	
