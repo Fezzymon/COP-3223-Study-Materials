@@ -1,0 +1,78 @@
+- All strings must be NULL terminated
+	- '0' or NULL at the very end value of a string to indicate it ended
+	- Ex. char word[10] = "HELLO"
+		- Values: 'H''E''L''L''O''\0''\0''\0''\0''\0'
+	- If you try and store "basketball" in this char word[10], it would have a "buffer overflow", where the string no longer has a NULL termination because the string fills ALL of the available memory allocated for the array
+		- 'b''a''s''k''e''t''b''a''l''l', no '\0' at the end :(
+*IMPORTANT* 
+- string.h library
+	- strlen
+		- returns the number of characters before the '\0'
+		- strlen(constant char *str); (takes the pointer to the first value of an array)
+	- strcmp
+		- compares two strings against each other and returns a values as answer
+		- strcmp(string1,string2);
+			- returns -1 if the ASCii value of S(1) is LESS-THAN(<) S(2)
+			- returns 0 if the ASCii values are EQUAL
+			- returns +1 if the ASCii value of S(1) is MORE-THAN(>) S(2)
+	- str(n)cpy & strcpy
+		- copies a string from Location(A) to Location(B) 
+		- strcpy(Destion, Source);
+			- dumb-function, does account for avaible space so "error" if overflow
+		- strncpy(Destion, Source, # of Values);
+			- Copies over selected # of values from source array
+	- str(n)cat & strcat
+		- Attaches Source-String to the end of Destination-String
+		- strcat(Destion, Source);
+			- dumb-function, does account for avaible space so "error" if overflow
+		- strncpy(Destion, Source, # of Values);
+			- Attaches selected # of values from source array to destination array
+	- strchr
+		- returns a pointer to the sought character of a string
+		- strchr(*source,'search value');
+			- char tweet[] = "This is my @mention";
+				- char *mention = strchr(tweet,'@');
+					- mention now equals(=) "@mention"
+				- returns 'NULL' if there is not that character in a string
+	- strstr 
+		- searches for a string matching to the source
+		- strstr(Search-Destination, Search-Source);
+			- returns a string from the begining of the find to the end of the string
+			- Ex. char haystack[] = "This is the way."; char needle[] = "the";
+				- char *the = strstr(haystack, needle);
+					- the is now equal(=) to "the way."
+			- failure returns 'NULL'
+	- strtok
+		- chops up a string based on a "slice" value
+		- strtok(source, slicer);
+			- Ex. char s[] = "This is the way"; char d[] = " (this is a space) "; 
+				- char *portion1 = strtok(s,d); char *portion2 = strtok(s,d); char *portion3 = strtok(s,d);
+					- portion1 = "This"
+					- portion2 = "is"
+					- portion3 = "the"
+			- Returns 'NULL' on failure to find "slicer"
+	- str(r)chr
+		- Finds the last occurance of your search value in a string
+		- strrchr(Source,Search-Value);
+			- Ex. char s[] = "some,data,in, commas";
+				- char *comma = strrchr(s, ',');
+					- comma is now equal(=) to ",commas"
+			- Returns the string AFTER, the last occurance of your search value
+			- Returns 'NULL' if no value is found
+	- str(p)brk 
+		- Finds the first matching character that meets the search parameters, prints string from there-on
+		- strpbrk(Source, Search-Parameters);
+			- Ex. char s[] = "AASDFAFS3123123"; char num[] = "0123456789";
+				- char *match = strpbrk(s,num);
+					- match is now equal(=) to "3213123"
+			- Returns 'NULL' on failure
+	- str(c)spn
+		- Determines how many values are in the string, that are not in the search parameters
+		- strcspn(Source,Search-Parameters);
+			- Ex. char s[] = "ADSFASFAS42312321"; char num[] ="0123894567";
+				- int init = strcspn(s,num);
+					- init is now equal(=) to value(int) 9
+			- Returns value(int) 0 if all values are within search or the value(int) 
+
+
+	
